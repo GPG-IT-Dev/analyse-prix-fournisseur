@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse des Prix Fournisseurs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.sheetjs.com/xlsx-0.18.5/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Analyse des Prix Fournisseurs</h1>
+        
+        <section class="upload-section">
+            <h2>Importer un fichier Excel</h2>
+            <p>Glissez-déposez votre fichier ou cliquez pour sélectionner</p>
+            <div class="file-input-wrapper">
+                <input type="file" id="fileInput" accept=".xlsx,.xls" />
+                <label for="fileInput">
+                    <span>Choisir un fichier</span>
+                </label>
+            </div>
+        </section>
+
+        <section id="filters" class="filters" style="display: none;">
+            <div class="filter-group">
+                <label for="referenceSupplier">Fournisseur de référence</label>
+                <select id="referenceSupplier"></select>
+            </div>
+
+            <div class="filter-group">
+                <label for="supplierSelect">Fournisseurs à afficher</label>
+                <select id="supplierSelect" multiple></select>
+            </div>
+
+            <div class="filter-group">
+                <label>Période</label>
+                <div id="dateSlider"></div>
+                <div class="date-range-labels">
+                    <span id="dateStart"></span>
+                    <span id="dateEnd"></span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label for="searchInput">Rechercher</label>
+                <input type="text" id="searchInput" placeholder="Article, série ou granit..." />
+            </div>
+
+            <div class="button-group">
+                <button id="filterReferenceBtn" class="btn">Filtrer par référence</button>
+                <button id="anonymizeBtn" class="btn">Anonymiser</button>
+                <button id="exportBtn" class="btn">Exporter</button>
+            </div>
+        </section>
+
+        <section id="priceTable" class="price-table"></section>
+    </div>
+
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="progress-text">0%</div>
+        <p class="message-text"></p>
+    </div>
+</body>
+</html>

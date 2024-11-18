@@ -1,0 +1,13 @@
+{
+  "name": "supplier-analysis",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "servor --reload"
+  },
+  "dependencies": {
+    "servor": "^4.0.2",
+    "xlsx": "^0.18.5"
+  }
+}
